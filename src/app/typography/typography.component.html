@@ -1,0 +1,91 @@
+
+
+  <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+    <div class="container-fluid">
+        
+        <button mat-raised-button class="navbar-toggler" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navigation" style="margin-top: 20px;">
+            <form class="navbar-form">
+                <div class="input-group no-border">
+                    <input type="text" value="" class="form-control" (input)="onChangeEvent($event)" placeholder="Search...">
+                    <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">Blocked Owners</h4>
+                        <p class="card-category"> Here is table of Blocked Owner's </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" transparent">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Location
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                      Email
+                                  </th>
+                                  <th>
+                                      Phone Number
+                                  </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let owner of Owners; let i = index">
+                                        <td>
+                                            {{i}}
+                                        </td>
+                                        <td>
+                                          {{owner.name}}
+                                        </td>
+                                        <td>
+                                          {{owner.address}}
+                                        </td>
+                                        <td>
+                                          {{owner.status}}
+                                        </td>
+                                        <td>
+                                          {{owner.email}}
+                                        </td>
+                                        <td class="text-primary">
+                                          {{owner.phoneNumber}}
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button style="background-color:#43a047; color: white;" (click)="onUnBlock(owner.id)" value="{{owner.id}}" >Unblock</button>
+                                        
+                                     </td>
+                                    </tr> 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
